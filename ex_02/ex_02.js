@@ -1,19 +1,34 @@
 window.onload = function() {
-// Initialize the map and set its view to France with a starting zoom levellet map = L.map('map').setView([46.603354, 1.888334], 6);
+
+     // Initialize the map and set its view to France with a starting zoom level
+
+     let map = L.map('map').setView([46.603354, 1.888334], 6);
  
     // Load and display tile layer on the map
 
      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
      }).addTo(map);
  
-    // Define custom Epitech iconvar epitechIcon = L.icon({
-iconUrl: 'imageres/epitech-pin.png', // Make sure this path is correcticonSize: [40, 60], // size of the iconiconAnchor: [20, 60], // point of the icon which will correspond to marker's locationpopupAnchor: [0, -60] // point from which the popup should open relative to the iconAnchor
+    // Define custom Epitech icon
+
+     let epitechIcon = L.icon({
+
+         iconUrl: 'imageres/epitech-pin.png', // Make sure this path is correct
+
+         iconSize: [40, 60], // size of the icon
+
+         iconAnchor: [20, 60], // point of the icon which will correspond to marker's location
+
+         popupAnchor: [0, -60] // point from which the popup should open relative to the iconAnchor
 
      });
  
-    // Define the Epitech locations with their coordinatesvar locations = [
+    // Define the Epitech locations with their coordinates
+
+     let locations = [
 
          { city: "Paris", coords: [48.8566, 2.3522] },
 
@@ -30,7 +45,8 @@ iconUrl: 'imageres/epitech-pin.png', // Make sure this path is correcticonSize: 
     // Add markers to the map with popups
 
      locations.forEach(function(location) {
-var marker = L.marker(location.coords, { icon: epitechIcon }).addTo(map);
+
+         let marker = L.marker(location.coords, { icon: epitechIcon }).addTo(map);
 
          marker.bindPopup(`<b>${location.city} rocks!</b>`);
 
